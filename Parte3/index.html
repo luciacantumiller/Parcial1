@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
 
-
 <script>
 
 let nombres  = ['Jorge','Isabel','Juan','Pedro','Karina','Jose','Arturo','Rogelio','Bertha'];
@@ -16,13 +15,30 @@ let nombres  = ['Jorge','Isabel','Juan','Pedro','Karina','Jose','Arturo','Rogeli
 
 // CREA TU FUNCION mayusculas aqui:
 
+function mayusculas(arregloNombres) { 
+    const arrregloMayusculas = arregloNombres.map(nombre => nombre.toUpperCase());
+    console.log(arrregloMayusculas);
+} 
+
 
 
 /*
-### F2 Crea una funcion llamada numVocales que reciba como parámetro un arreglo y cuente el numero de vocales de cada elemento y escriba en consola "datos: tiene [x] vocales , para cada elemento del arreglo" 
+### F2 Crea una funcion llamada numVocales que reciba como parámetro un arreglo y cuente el numero de vocales de cada elemento y escriba en consola "datos: tiene  vocales , para cada elemento del arreglo" 
 */
 
 // CREA TU FUNCION numVocales aqui:
+
+function numVocales(nombre){
+    // for(var x = 0; x < nombre.length; x++) {
+        var vocales = 0;
+        for (var i = 0; i <= nombre.length - 1; i++) {
+            if (nombre.charAt(i).toLowerCase() == "a" || nombre.charAt(i).toLowerCase() == "e" || nombre.charAt(i).toLowerCase() == "i" || nombre.charAt(i).toLowerCase() == "o" || nombre.charAt(i).toLowerCase() == "u") {
+                vocales += 1;
+            }
+        }
+        console.log(nombre + ": tiene " + vocales + " vocales")
+    // }
+}
 
 
 /*
@@ -31,7 +47,11 @@ let nombres  = ['Jorge','Isabel','Juan','Pedro','Karina','Jose','Arturo','Rogeli
 
 // CREA TU FUNCION numVocalesArr aqui:
 
-
+function numVocalesArr(arregloNombres) {
+    for(var x = 0; x < arregloNombres.length; x++) {
+        numVocales(arregloNombres[x]);
+    }
+}
 
 
 
@@ -64,7 +84,16 @@ Deberia escribir en consola
 
 
 */
+function Perro(nombre, color, raza) {
+  this.nombre = nombre;
+  this.color = color;
+  this.raza = raza;
+  this.displayInfo = displayInfo;
+}
 
+function displayInfo(){ 
+    console.log(`Nombre: ${this.nombre}, De Color: ${this.color}, Raza: ${this.raza}`); 
+}
 
 
 /***
@@ -74,13 +103,16 @@ Deberia escribir en consola
  ***/
 
 // F1
-
+console.log("PRUEBA FUNCION 1");
+console.log(mayusculas(nombres));
 
 // F2
-
+console.log("PRUEBA FUNCION 2");
+console.log(numVocales(nombres[1]));
 
 // F3
-
+console.log("PRUEBA FUNCION 3");
+console.log(numVocalesArr(nombres));
 
 
 
@@ -89,6 +121,15 @@ Deberia escribir en consola
  *        PRUEBA TUS OBJETOS
  * 
  ***/
+
+console.log("PRUEBA OBJETOS");
+
+var perro1 = new Perro('Max', 'Cafe', 'Golden');
+var perro2 = new Perro('Mia', 'Negro', 'Schnauzer');
+var perro3 = new Perro('Fido', 'Blanco', 'Poodle');
+
+console.log(perro1.nombre, perro2.color, perro3.raza);
+perro1.displayInfo();
 
 
 </script>
